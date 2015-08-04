@@ -1,4 +1,13 @@
 
 <div ng-controller="Component2Controller as ctrl2">
-  <h1 class="frontend-bootstrap-component-2">{{ctrl2.component2Phrase}}</h1><a ui-sref="state1.index">Go to state1</a>
+  <h1 class="frontend-bootstrap-component-2">{{ctrl2.component2Phrase}}</h1>
+  <form name="userForm" ng-controller="UserController as userCtrl" ng-submit="userForm.$valid &amp;&amp; userCtrl.addUser" novalidate="novalidate">Name (*)
+    <input name="name" ng-model="userCtrl.user.name" required="required"/><br/>Last Name (*)
+    <input name="lastname" ng-model="userCtrl.user.lastname" required="required"/><br/>Username (*)
+    <input name="usrname" ng-model="userCtrl.user.usrname" required="required"/><br/>Email (*)
+    <input name="email" ng-model="userCtrl.user.email" type="email" required="required"/><br/>Password (*)
+    <input name="password" ng-model="userCtrl.user.password" required="required"/><br/>Confirm Password (*)
+    <input name="confirmpwd" ng-model="userCtrl.user.confirmpwd" required="required"/><br/>
+    <input type="submit" value="Submit"/>
+  </form><a ui-sref="home.index">Go to Home</a>
 </div>

@@ -4,39 +4,39 @@ app.config([
 
   // For any unmatched urls
   $urlRouterProvider.otherwise( ($injector) => {
-    $injector.get('$state').go('state1.index');
+    $injector.get('$state').go('home.index');
   });
 
   // Now set up the states
   $stateProvider
-    .state('state1', {
+    .state('home', {
       abstract: true,
       template: '<ui-view/>',
       views: {
         main: {
-          templateUrl: '../app/layouts/state1/main.html'
+          templateUrl: '../app/layouts/home/main.html'
         }
       }
     })
-    .state('state1.index', {
-      url: '/state1',
+    .state('home.index', {
+      url: '/home',
       views: {
         innerComponent: {
           templateUrl: '../app/components/component1/component1.html'
         }
       }
     })
-    .state('state2', {
+    .state('sign_up', {
       abstract: true,
       template: '<ui-view/>',
       views: {
         main: {
-          templateUrl: '../app/layouts/state2/main.html'
+          templateUrl: '../app/layouts/sign_up/main.html'
         }
       }
     })
-    .state('state2.index', {
-      url: '/state2',
+    .state('sign_up.index', {
+      url: '/sign_up',
       views: {
         innerComponent: {
           templateUrl: '../app/components/component2/component2.html'
