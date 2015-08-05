@@ -1,7 +1,7 @@
 div(ng-controller="Component2Controller as ctrl2")
   h1.frontend-bootstrap-component-2
     {{ctrl2.component2Phrase}}
-  form(name='userForm' ng-controller='UserController as userCtrl' ng-submit='userForm.$valid && userCtrl.addUser' novalidate)
+  form(name='userForm' ng-controller='UserController as userCtrl' ng-submit='userForm.$valid && userCtrl.addUser()' novalidate)
     | Name (*)
     input(name='name', ng-model='userCtrl.user.name', required)
     br
@@ -15,10 +15,10 @@ div(ng-controller="Component2Controller as ctrl2")
     input(name='email', ng-model='userCtrl.user.email', type='email' required)
     br
     | Password (*)
-    input(name='password', ng-model='userCtrl.user.password', required)
+    input(name='pw1', ng-model='userCtrl.user.pw1', type='password', required, ng-minlength="6")
     br
     | Confirm Password (*)
-    input(name='confirmpwd', ng-model='userCtrl.user.confirmpwd', required)
+    input(name='pw2', ng-model='userCtrl.user.pw2', type='password', required, compare-to="userCtrl.user.pw1")
     br
     input(type='submit' value='Submit')			
   a(ui-sref='home.index')
