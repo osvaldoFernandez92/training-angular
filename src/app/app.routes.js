@@ -1,13 +1,13 @@
 app.config([
-  '$stateProvider', '$urlRouterProvider', '$locationProvider', 'RestangularProvider',
-  function($stateProvider, $urlRouterProvider, $locationProvider, RestangularProvider) {
+  '$stateProvider', '$urlRouterProvider', '$locationProvider', 'RestangularProvider','configuration',
+  function($stateProvider, $urlRouterProvider, $locationProvider, RestangularProvider, configuration) {
 
   // Restangular configuration
-    RestangularProvider.setBaseUrl('https://api.parse.com/1');
+    RestangularProvider.setBaseUrl(configuration.baseParseURL);
     RestangularProvider.setDefaultHeaders({
-      'Content-Type': 'application/json',
-      'X-Parse-Application-Id': 'DfYLYMHIcC80ykwZFbQet4a3YqYkOD92hcXIMIfA',
-      'X-Parse-REST-API-Key': '0HlB6mmcrPMbu6UTyrnLnBJ4abOasv9TPrK6JYkE'
+      'Content-Type': configuration.baseHeaderContentType,
+      'X-Parse-Application-Id': configuration.baseHeaderAppID,
+      'X-Parse-REST-API-Key': configuration.baseHeaderAPIKey
     });
 
   // For any unmatched urls
