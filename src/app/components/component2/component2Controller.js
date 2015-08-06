@@ -9,8 +9,7 @@ function(Restangular) {
 	this.baseUsers = Restangular.all('users');
 	this.user={};
 	this.addUser=function(){
-
-		//NEW ACCOUNT
+		//NEW USER
 		var newUser = {
   			"username": this.user.usrname,
 			"password": this.user.pw1,
