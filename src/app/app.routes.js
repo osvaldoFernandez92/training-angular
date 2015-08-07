@@ -1,45 +1,56 @@
 app.config([
-  '$stateProvider', '$urlRouterProvider', '$locationProvider',
-  function($stateProvider, $urlRouterProvider, $locationProvider) {
+  '$httpProvider','$stateProvider', '$urlRouterProvider', '$locationProvider', 'RestangularProvider','configuration',
+  function($httpProvider, $stateProvider, $urlRouterProvider, $locationProvider, RestangularProvider, configuration) {
+
+
+  //http default header configuration
+    $httpProvider.defaults.headers.common = {
+      'Content-Type': configuration.baseHeaderContentType,
+      'X-Parse-Application-Id': configuration.baseHeaderAppID,
+      'X-Parse-REST-API-Key': configuration.baseHeaderAPIKey
+    };
+
+  // Restangular configuration
+    RestangularProvider.setBaseUrl(configuration.baseParseURL);
 
   // For any unmatched urls
   $urlRouterProvider.otherwise( ($injector) => {
-    $injector.get('$state').go('state1.index');
+    $injector.get('$state').go('home.index');
   });
 
   // Now set up the states
   $stateProvider
-    .state('state1', {
+    .state('home', {
       abstract: true,
       template: '<ui-view/>',
       views: {
         main: {
-          templateUrl: '../app/layouts/state1/main.html'
+          templateUrl: '../app/layouts/home/main.html'
         }
       }
     })
-    .state('state1.index', {
-      url: '/state1',
+    .state('home.index', {
+      url: '/home',
       views: {
         innerComponent: {
-          templateUrl: '../app/components/component1/component1.html'
+          templateUrl: '../app/components/component1/home.html'
         }
       }
     })
-    .state('state2', {
+    .state('sign_up', {
       abstract: true,
       template: '<ui-view/>',
       views: {
         main: {
-          templateUrl: '../app/layouts/state2/main.html'
+          templateUrl: '../app/layouts/sign_up/main.html'
         }
       }
     })
-    .state('state2.index', {
-      url: '/state2',
+    .state('sign_up.index', {
+      url: '/sign_up',
       views: {
         innerComponent: {
-          templateUrl: '../app/components/component2/component2.html'
+          templateUrl: '../app/components/component2/sign_up.html'
         }
       }
     });
