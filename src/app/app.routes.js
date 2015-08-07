@@ -33,7 +33,7 @@ app.config([
       url: '/home',
       views: {
         innerComponent: {
-          templateUrl: '../app/components/component1/component1.html'
+          templateUrl: '../app/components/component1/home.html'
         }
       }
     })
@@ -50,7 +50,7 @@ app.config([
       url: '/sign_up',
       views: {
         innerComponent: {
-          templateUrl: '../app/components/component2/component2.html'
+          templateUrl: '../app/components/component2/sign_up.html'
         }
       }
     });
