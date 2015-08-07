@@ -1,25 +1,26 @@
-div(ng-controller="Component2Controller as ctrl2")
+div(ng-controller="SignUpController as signUpctrl")
   h1.frontend-bootstrap-component-2
-    {{ctrl2.component2Phrase}}
+    {{signUpctrl.component2Phrase}}
   form(name='userForm' ng-controller='UserController as userCtrl' ng-submit='userForm.$valid && userCtrl.addUser()' novalidate)
-    | Name (*)
-    input(name='name', ng-model='userCtrl.user.name', required)
-    br
-    | Last Name (*)
-    input(name='lastname', ng-model='userCtrl.user.lastname', required)
-    br
-    | Username (*)
-    input(name='usrname', ng-model='userCtrl.user.usrname', required)
-    br
-    | Email (*)
-    input(name='email', ng-model='userCtrl.user.email', type='email' required)
-    br
-    | Password (*)
-    input(name='pw1', ng-model='userCtrl.user.pw1', type='password', required, ng-minlength="6")
-    br
-    | Confirm Password (*)
-    input(name='pw2', ng-model='userCtrl.user.pw2', type='password', required, compare-to="userCtrl.user.pw1")
-    br
-    input(type='submit' value='Submit')			
+    .input-control
+      | Name (*)
+      input(name='name', ng-model='userCtrl.user.name', required)
+    .input-control
+      | Last Name (*)
+      input(name='lastname', ng-model='userCtrl.user.lastname', required)
+    .input-control
+      | Username (*)
+      input(name='usrname', ng-model='userCtrl.user.usrname', required)
+    .input-control
+      | Email (*)
+      input(name='email', ng-model='userCtrl.user.email', type='email' required)
+    .input-control
+      | Password (*)
+      input(name='pw1', ng-model='userCtrl.user.pw1', type='password', required, ng-minlength="6")
+    .input-control
+      | Confirm Password (*)
+      input(name='pw2', ng-model='userCtrl.user.pw2', type='password', required, compare-to="userCtrl.user.pw1")
+    .input-control
+      input(type='submit' value='Submit')			
   a(ui-sref='home.index')
     | Go to Home

@@ -1,14 +1,17 @@
 app.config([
-  '$stateProvider', '$urlRouterProvider', '$locationProvider', 'RestangularProvider','configuration',
-  function($stateProvider, $urlRouterProvider, $locationProvider, RestangularProvider, configuration) {
+  '$httpProvider','$stateProvider', '$urlRouterProvider', '$locationProvider', 'RestangularProvider','configuration',
+  function($httpProvider, $stateProvider, $urlRouterProvider, $locationProvider, RestangularProvider, configuration) {
 
-  // Restangular configuration
-    RestangularProvider.setBaseUrl(configuration.baseParseURL);
-    RestangularProvider.setDefaultHeaders({
+
+  //http default header configuration
+    $httpProvider.defaults.headers.common = {
       'Content-Type': configuration.baseHeaderContentType,
       'X-Parse-Application-Id': configuration.baseHeaderAppID,
       'X-Parse-REST-API-Key': configuration.baseHeaderAPIKey
-    });
+    };
+
+  // Restangular configuration
+    RestangularProvider.setBaseUrl(configuration.baseParseURL);
 
   // For any unmatched urls
   $urlRouterProvider.otherwise( ($injector) => {
