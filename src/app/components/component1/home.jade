@@ -13,6 +13,9 @@ div(ng-controller="HomeController as homeCtrl")
     li
       a(ui-sref='user.edit')
         | Edit user
+    li
+      a(ui-sref='book.index')
+        | Available books
   div(ng-show="homeCtrl.isLoggedIn()")
     button.btn.btn-primary(ng-click="homeCtrl.logout()")
       | LOGOUT

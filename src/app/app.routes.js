@@ -103,6 +103,27 @@ app.config([
         requireLogin: true,
         requireLogout: false
       } 
+    })
+    .state('book', {
+      abstract: true,
+      template: '<ui-view/>',
+      views: {
+        main: {
+          templateUrl: '../app/layouts/book/main.html'
+        }
+      }
+    })
+    .state('book.index', {
+      url: '/books',
+      views: {
+        innerComponent: {
+          templateUrl: '../app/components/book/books.html'
+        }
+      },
+      data: {
+        requireLogin: true,
+        requireLogout: false
+      } 
     });
 
     $locationProvider.html5Mode(true);

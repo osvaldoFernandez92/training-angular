@@ -1,0 +1,25 @@
+div(ng-controller="BookController as bookCtrl")
+  h1 BOOKS
+  a(ui-sref='home.index')
+    | Go to Home
+  table
+    tr
+      td
+        | Book name
+      td
+        | Author
+      td
+        | Year
+      td
+        | Image
+    tr(ng-repeat="result in bookCtrl.results")
+      td
+        {{ result.name }}
+      td
+        {{ result.author }}
+      td
+        {{ result.year }}
+      td
+        img(src='{{result.imageUrl}}')
+  button(ng-click='bookCtrl.previousPage()') Previous
+  button(ng-click='bookCtrl.nextPage()') Next
