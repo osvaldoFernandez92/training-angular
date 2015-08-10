@@ -3,6 +3,8 @@ var app = angular.module( // jshint ignore:line
     'ui.router',
     'pascalprecht.translate',
     'app.config',
+    'LocalStorageModule',
     'restangular'
+    
   ]
 );

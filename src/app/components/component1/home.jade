@@ -1,5 +1,18 @@
 div(ng-controller="HomeController as homeCtrl")
   h1.frontend-bootstrap-component-1
     {{homeCtrl.component1Phrase}}
-  a(ui-sref='sign_up.index')
-    | Go to sing up
+  div(ng-hide="homeCtrl.isLoggedIn()")
+    ul
+      li
+        a(ui-sref='login.index')
+          | Login
+      li
+        a(ui-sref='sign_up.index')
+          | Go to sing up
+  ul      
+    li
+      a(ui-sref='user.edit')
+        | Edit user
+  div(ng-show="homeCtrl.isLoggedIn()")
+    button.btn.btn-primary(ng-click="homeCtrl.logout()")
+      | LOGOUT
