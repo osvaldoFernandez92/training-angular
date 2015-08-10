@@ -35,7 +35,11 @@ app.config([
         innerComponent: {
           templateUrl: '../app/components/component1/home.html'
         }
-      }
+      },
+      data: {
+        requireLogin: false,
+        requireLogout: false
+      }           
     })
     .state('sign_up', {
       abstract: true,
@@ -52,7 +56,53 @@ app.config([
         innerComponent: {
           templateUrl: '../app/components/component2/sign_up.html'
         }
+      },
+      data: {
+        requireLogin: false,
+        requireLogout: true
+      } 
+    })
+    .state('login', {
+      abstract: true,
+      template: '<ui-view/>',
+      views: {
+        main: {
+          templateUrl: '../app/layouts/login/main.html'
+        }
       }
+    })
+    .state('login.index', {
+      url: '/login',
+      views: {
+        innerComponent: {
+          templateUrl: '../app/components/login/login.html'
+        }
+      },
+      data: {
+        requireLogin: false,
+        requireLogout: true
+      }
+    }) 
+    .state('user', {
+      abstract: true,
+      url: '/user',
+      views: {
+        main: {
+          templateUrl: '../app/layouts/user/main.html'
+        }
+      }
+    })
+    .state('user.edit', {
+      url: '/edit',
+      views: {
+        innerComponent: {
+          templateUrl: '../app/components/user/edit.html'
+        }
+      },
+      data: {
+        requireLogin: true,
+        requireLogout: false
+      } 
     });
 
     $locationProvider.html5Mode(true);

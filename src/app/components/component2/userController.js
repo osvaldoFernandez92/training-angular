@@ -1,7 +1,7 @@
 angular.module('app').controller('UserController', ['Restangular',
 function(Restangular) {
 	this.baseUsers = Restangular.all('users');
-	this.user={};
+    this.user={};
 	this.addUser=function(){
 		//NEW USER
 		var newUser = {
