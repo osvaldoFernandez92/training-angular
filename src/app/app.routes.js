@@ -121,7 +121,8 @@ app.config([
         }
       },
       data: {
-        requireLogin: true
+        requireLogin: true,
+        requireLogout: false
       } 
     });
 
