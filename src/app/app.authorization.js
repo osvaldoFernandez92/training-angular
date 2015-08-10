@@ -9,5 +9,10 @@ angular.module('app').run([
         alert('FORBIDDEN: You have to be logged');
         $state.go('login.index');
       }
+      else if (authenticationService.isLoggedIn() && toState.data.requireLogout) {
+        event.preventDefault();
+        alert('FORBIDDEN: You are already logged');  
+        $state.go('home.index');
+      }
   });
 }]);

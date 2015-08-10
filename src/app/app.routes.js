@@ -37,7 +37,8 @@ app.config([
         }
       },
       data: {
-        requireLogin: false
+        requireLogin: false,
+        requireLogout: false
       }           
     })
     .state('sign_up', {
@@ -57,7 +58,8 @@ app.config([
         }
       },
       data: {
-        requireLogin: false
+        requireLogin: false,
+        requireLogout: true
       } 
     })
     .state('login', {
@@ -77,12 +79,13 @@ app.config([
         }
       },
       data: {
-        requireLogin: false
+        requireLogin: false,
+        requireLogout: true
       }
     }) 
     .state('user', {
       abstract: true,
-      template: '<ui-view/>',
+      url: '/user',
       views: {
         main: {
           templateUrl: '../app/layouts/user/main.html'
@@ -90,14 +93,15 @@ app.config([
       }
     })
     .state('user.edit', {
-      url: '/user/edit',
+      url: '/edit',
       views: {
         innerComponent: {
           templateUrl: '../app/components/user/edit.html'
         }
       },
       data: {
-        requireLogin: true
+        requireLogin: true,
+        requireLogout: false
       } 
     });
 

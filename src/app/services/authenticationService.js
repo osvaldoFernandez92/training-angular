@@ -24,7 +24,6 @@ angular.module('app').factory('authenticationService', [
         const defaultSuccessCb =  (data) => {
           localStorageService.set('session_token', data.sessionToken);
           success(data);
-          $state.go('home.index');
         };
         return Restangular.one('login').get(params).then(defaultSuccessCb, error);
       },

@@ -1,12 +1,13 @@
 angular.module('app').controller('LoginController', [
-  'authenticationService',
-  function (authenticationService) {
+  'authenticationService','$state',
+  function (authenticationService, $state) {
     
     this.loginPhrase = 'Login';
 
     const successCb = (data) => {
       alert('You have logged in');
       console.log(data);
+      $state.go('home.index');
     };
 
     const errorCb = (err) => {
